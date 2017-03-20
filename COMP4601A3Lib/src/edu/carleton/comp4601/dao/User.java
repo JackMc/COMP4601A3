@@ -3,6 +3,7 @@ package edu.carleton.comp4601.dao;
 import static com.mongodb.client.model.Filters.eq;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -119,6 +120,19 @@ public class User {
 			
 			u.loadDoc(d);
 		}
-		return null;
+		return users.get(id);
+	}
+	
+	public static void all() {
+		for (Document d : Database.getInstance().getCollection(COLLECTION).find()) {
+			User u = new User(d.getString("_id"));
+			
+			users.put(d.getString("id"), u);
+			u.loadDoc(d);
+		}
+	}
+	
+	public static Collection<User> getUsers() {
+		return users.values();
 	}
 }

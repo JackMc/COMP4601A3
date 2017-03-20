@@ -15,9 +15,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.google.common.collect.Iterators;
-import com.google.common.collect.PeekingIterator;
-
 import edu.carleton.comp4601.dao.Review;
 import edu.carleton.comp4601.dao.Item;
 import edu.carleton.comp4601.dao.User;
@@ -70,9 +67,9 @@ public class PageDownloader {
 				
 				Iterator<Element> it = bodyEles.iterator();
 				
-				Item page = new Item(pageDoc.title());
+				Item item = new Item(pageDoc.title());
 				
-				pages.put(page.getName(), page);
+				pages.put(item.getName(), item);
 
 				while (it.hasNext()) {
 					Element userLink = it.next();
@@ -89,7 +86,7 @@ public class PageDownloader {
 					} while(it.hasNext() && paragraph.tag().getName().equals("p"));
 					String userName = userLink.text();
 					
-					Review review = new Review();
+					Review review = new Review(userName + ":" + item.getName());
 					User user = null;
 					if (users.containsKey(userName)) {
 						user = users.get(userName);
@@ -99,11 +96,11 @@ public class PageDownloader {
 						users.put(userName, user);
 					}
 					
-					review.setAuthor(user);
+					review.setAuthor(user.getUserName());
 					review.setText(reviewTextBuilder.toString());
-					review.setPage(page);
+					review.setItemId(item.getName());
 					user.addReview(review);
-					page.addReview(review);
+					item.addReview(review);
 					reviews.add(review);
 				}
 				

@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="COMP4601A3Lib/src"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/commons-io-2.5-javadoc.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/commons-io-2.5.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/ejml-0.23.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/fluent-hc-4.5.3.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/guava-21.0.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/httpclient-4.5.3.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/httpclient-cache-4.5.3.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/httpclient-win-4.5.3.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/httpcore-4.4.6.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/httpmime-4.5.3.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/jna-4.1.0.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/jna-platform-4.1.0.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/joda-time-2.1-sources.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/joda-time.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/jollyday-0.4.7-sources.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/jollyday.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/jsoup-1.10.2.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/mongo-java-driver-3.4.1.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/stanford-corenlp-3.3.0-javadoc.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/stanford-corenlp-3.3.0-models.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/stanford-corenlp-3.3.0-sources.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/stanford-corenlp-3.3.0.jar"/>
-	<classpathentry kind="lib" path="COMP4601A3Lib/lib/xom.jar"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/ejml-0.23.jar"/>
+	<classpathentry kind="lib" path="lib/javax.json-api-1.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/javax.json.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-2.9-sources.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time.jar"/>
+	<classpathentry kind="lib" path="lib/jollyday-0.4.9-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jollyday.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.10.2.jar"/>
+	<classpathentry kind="lib" path="lib/mongo-java-driver-3.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/protobuf.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-simple.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-3.7.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-3.7.0-models.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-3.7.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-3.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/xom-1.2.10-src.jar"/>
+	<classpathentry kind="lib" path="lib/xom.jar"/>
 	<classpathentry kind="output" path="COMP4601A3Lib/bin"/>
 </classpath>

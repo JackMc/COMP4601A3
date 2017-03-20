@@ -95,4 +95,13 @@ public class Item {
 
 		return items.get(id);
 	}
+
+	public static void all() {
+		for (Document d : Database.getInstance().getCollection(COLLECTION).find()) {
+			Item i = new Item(d.getString("_id"));
+			
+			items.put(d.getString("id"), i);
+			i.loadDoc(d);
+		}
+	}
 }

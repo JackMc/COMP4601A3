@@ -2,6 +2,7 @@ package edu.carleton.comp4601.dao;
 
 import static com.mongodb.client.model.Filters.eq;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,19 +12,16 @@ import edu.carleton.comp4601.database.Database;
 
 public class Review {
 	private String text;
-	private User author;
-	private Item item;
+	private String authorId;
+	private String itemId;
+	private String id;
 
-	public Review(Document d) {
-		this.text = d.getString("text");
+	public String getItem() {
+		return itemId;
 	}
 
-	public Item getPage() {
-		return item;
-	}
-
-	public void setPage(Item page) {
-		this.item = page;
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getText() {
@@ -34,19 +32,21 @@ public class Review {
 		this.text = text;
 	}
 
-	public User getAuthor() {
-		return author;
+	public String getAuthorId() {
+		return authorId;
 	}
 
-	public void setAuthor(User author) {
-		this.author = author;
+	public void setAuthor(String author) {
+		this.authorId = author;
 	}
 	
 	public String getId() {
-		return author.getUserName() + ":" + item.getName();
+		return id;
 	}
 
-	public Review() { }
+	public Review(String id) {
+		this.id = id;
+	}
 
 	public int hashCode() {
 		return getId().hashCode();
@@ -63,7 +63,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [text=" + text + ", author=" + author + "]";
+		return "Review [text=" + text + ", author=" + authorId + "]";
 	}
 
 	public void save() {
@@ -71,16 +71,16 @@ public class Review {
 
 		doc.put("_id", getId());
 		doc.put("text", text);
-		doc.put("author", author.getUserName());
-		doc.put("page", item.getName());
+		doc.put("author", authorId);
+		doc.put("page", itemId);
 
 		Database.getInstance().getCollection(COLLECTION).insertOne(doc);
 	}
 	
 	protected void loadDoc(Document d) {
 		this.text = d.getString("text");
-		this.author = User.id(d.getString("author"));
-		this.item = Item.id(d.getString("page"));
+		this.authorId = d.getString("author");
+		this.itemId = d.getString("page");
 	}
 
 	private static final Map<String, Review> reviews = new HashMap<>();
@@ -90,13 +90,18 @@ public class Review {
 		if (!reviews.containsKey(reviewId)) {
 			Document d = Database.getInstance().getCollection(COLLECTION).find(eq("_id", reviewId)).first();
 			
-			Review r = new Review();
+			Review r = new Review(reviewId);
 
 			reviews.put(reviewId, r);
 			
 			r.loadDoc(d);
+			System.out.println("Loaded review " + reviewId);
 		}
 		
 		return reviews.get(reviewId);
+	}
+	
+	public static Collection<Review> getReviews() {
+		return reviews.values();
 	}
 }
